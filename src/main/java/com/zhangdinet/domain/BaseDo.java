@@ -4,7 +4,7 @@ import java.io.Serializable;
 import java.util.Date;
 
 /**
- * 领域基础类
+ * 通用领域基础类
  *
  * User: zhangdi
  * Date: 2016-07-12 19:20
