@@ -1,25 +1,27 @@
 package com.zhangdinet;
 
 /**
- * Hello world!
- *
+ * User to start demo
  */
-public class App 
-{
-    public static void main( String[] args ) {
-        System.out.println(args.length);
-        for(String s:args){
-            System.out.println(s);
-        }
+public class App {
+
+    public App(){
     }
 
-    public static int add(int a,int b){
-        int c = a+b;
+    public int add(int a, int b) {
+        int c = a + b;
+        if (c >= 10) {
+            int d = 100;
+            d++;
+        } else {
+            int e = 200;
+            e++;
+        }
         System.out.print(c);
         return c;
     }
 
-    public static int sub(int a,int b){
-        return a-b;
+    public int sub(int a, int b) {
+        return a - b;
     }
 }
