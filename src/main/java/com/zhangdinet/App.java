@@ -1,9 +1,5 @@
 package com.zhangdinet;
 
-import sun.util.resources.cldr.so.CurrencyNames_so;
-
-import java.io.Console;
-
 /**
  * Hello world!
  *
