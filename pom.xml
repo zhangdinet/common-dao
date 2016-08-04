@@ -133,6 +133,12 @@
                     </execution>
                 </executions>
             </plugin>
+
+            <plugin>
+                <groupId>org.mybatis.genetator</groupId>
+                <artifactId>mybatis-generator-maven-plugin</artifactId>
+                <version>1.3.3</version>
+            </plugin>
         </plugins>
     </build>
 </project>
