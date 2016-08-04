@@ -135,9 +135,17 @@
             </plugin>
 
             <plugin>
-                <groupId>org.mybatis.genetator</groupId>
+                <groupId>org.mybatis.generator</groupId>
                 <artifactId>mybatis-generator-maven-plugin</artifactId>
                 <version>1.3.3</version>
+                <!--<executions>
+                    <execution>
+                        <id>Generate MyBatis Artifacts</id>
+                        <goals>
+                            <goal>generate</goal>
+                        </goals>
+                    </execution>
+                </executions>-->
             </plugin>
         </plugins>
     </build>

@@ -3,41 +3,34 @@
         "-//mybatis.org//DTD MyBatis Generator Configuration 1.0//EN"
         "http://mybatis.org/dtd/mybatis-generator-config_1_0.dtd" >
 <generatorConfiguration>
-
-    <!-- !!!! Driver Class Path !!!! -->
-    <classPathEntry location="/zhangdi/software/jar/mysql-connector-java-5.1.39-bin.jar"/>
-
+    <properties url="file:///D:/zhangdi/project/common-dao/src/main/resources/generatorConfig.properties"/>
+    <classPathEntry location="${mybatis.generator.classPathEntry}"/>
     <context id="context" targetRuntime="MyBatis3">
         <commentGenerator>
             <property name="suppressAllComments" value="false"/>
             <property name="suppressDate" value="true"/>
         </commentGenerator>
 
-        <!-- !!!! Database Configurations !!!! -->
-        <jdbcConnection driverClass="" connectionURL="" userId="" password=""/>
+        <jdbcConnection driverClass="${mybatis.generator.driverClass}" connectionURL="${mybatis.generator.connectionURL}" userId="${mybatis.generator.userId}" password="${mybatis.generator.password}"/>
 
         <javaTypeResolver>
             <property name="forceBigDecimals" value="false"/>
         </javaTypeResolver>
 
-        <!-- !!!! Model Configurations !!!! -->
-        <javaModelGenerator targetPackage="" targetProject="THIS_CONFIGURATION_IS_NOT_REQUIRED">
+        <javaModelGenerator targetPackage="${mybatis.generator.domain.package}" targetProject="${mybatis.generator.target.project}">
             <property name="enableSubPackages" value="false"/>
             <property name="trimStrings" value="true"/>
         </javaModelGenerator>
 
-        <!-- !!!! Mapper XML Configurations !!!! -->
-        <sqlMapGenerator targetPackage="" targetProject="THIS_CONFIGURATION_IS_NOT_REQUIRED">
+        <sqlMapGenerator targetPackage="${mybatis.generator.xml.mapper.package}" targetProject="${mybatis.generator.target.project}">
             <property name="enableSubPackages" value="false"/>
         </sqlMapGenerator>
 
-        <!-- !!!! Mapper Interface Configurations !!!! -->
-        <javaClientGenerator targetPackage="" targetProject="THIS_CONFIGURATION_IS_NOT_REQUIRED" type="XMLMAPPER">
+        <javaClientGenerator targetPackage="${mybatis.generator.dao.package}" targetProject="${mybatis.generator.target.project}" type="XMLMAPPER">
             <property name="enableSubPackages" value="false"/>
         </javaClientGenerator>
 
-        <!-- !!!! Table Configurations !!!! -->
-        <table tableName="" enableCountByExample="false" enableDeleteByExample="false" enableSelectByExample="false"
-               enableUpdateByExample="false"/>
+        <table tableName="user" enableCountByExample="false" enableDeleteByExample="false" enableSelectByExample="false"
+               enableUpdateByExample="false" selectByExampleQueryId="false"/>
     </context>
 </generatorConfiguration>
