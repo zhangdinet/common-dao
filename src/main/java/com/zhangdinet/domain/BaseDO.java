@@ -9,13 +9,13 @@ import java.util.Date;
  * User: zhangdi
  * Date: 2016-07-12 19:20
  */
-public class BaseDo implements Serializable {
+public class BaseDO implements Serializable {
 
     private static final long serialVersionUID = 8922632691897618482L;
 
     private Long id;
     private Date gmtCreate;
-    private Date gmtModified;
+    private Date gmtUpdate;
 
     public Long getId() {
         return id;
@@ -33,20 +33,20 @@ public class BaseDo implements Serializable {
         this.gmtCreate = gmtCreate;
     }
 
-    public Date getGmtModified() {
-        return gmtModified;
+    public Date getGmtUpdate() {
+        return gmtUpdate;
     }
 
-    public void setGmtModified(Date gmtModified) {
-        this.gmtModified = gmtModified;
+    public void setGmtUpdate(Date gmtUpdate) {
+        this.gmtUpdate = gmtUpdate;
     }
 
     @Override
     public String toString() {
-        return "BaseDo{" +
+        return "BaseDO{" +
                 "id=" + id +
                 ", gmtCreate=" + gmtCreate +
-                ", gmtModified=" + gmtModified +
+                ", gmtUpdate=" + gmtUpdate +
                 '}';
     }
 }
