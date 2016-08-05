@@ -12,6 +12,5 @@ public class App {
         ApplicationContext applicationContext = new ClassPathXmlApplicationContext("spring-context.xml");
         int a = 10;
         a++;
-        a++;
     }
 }
