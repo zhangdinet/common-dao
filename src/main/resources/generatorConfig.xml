@@ -3,8 +3,8 @@
         "-//mybatis.org//DTD MyBatis Generator Configuration 1.0//EN"
         "http://mybatis.org/dtd/mybatis-generator-config_1_0.dtd" >
 <generatorConfiguration>
-    <properties url="file:///D:/zhangdi/project/common-dao/src/main/resources/generatorConfig.properties"/>
-    <classPathEntry location="${mybatis.generator.classPathEntry}"/>
+    <!--<properties url="file:///D:/zhangdi/project/common-dao/src/main/resources/generatorConfig.properties"/>-->
+    <properties url="file:////zhangdi/project/common-dao/src/main/resources/generatorConfig.properties"/>
     <context id="context" targetRuntime="MyBatis3">
         <commentGenerator>
             <property name="suppressAllComments" value="false"/>
@@ -22,7 +22,7 @@
             <property name="trimStrings" value="true"/>
         </javaModelGenerator>
 
-        <sqlMapGenerator targetPackage="${mybatis.generator.xml.mapper.package}" targetProject="${mybatis.generator.target.project}">
+        <sqlMapGenerator targetPackage="mapper" targetProject="${mybatis.generator.target.resources}">
             <property name="enableSubPackages" value="false"/>
         </sqlMapGenerator>
 
