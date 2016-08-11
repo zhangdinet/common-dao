@@ -1,11 +1,14 @@
 -- 用户表
-CREATE table user(
-  id BIGINT PRIMARY KEY COMMENT '主键',
-  name VARCHAR(64) DEFAULT '' NOT NULL COMMENT '用户名',
-  password VARCHAR(128) DEFAULT '' NOT NULL COMMENT '密码',
-  gmt_create DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP COMMENT '记录创建时间',
-  gmt_update DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP COMMENT '记录更新时间',
-  UNIQUE idx_name (name)
+CREATE TABLE `user` (
+  `id` bigint(20) NOT NULL AUTO_INCREMENT COMMENT '主键',
+  `name` varchar(64) NOT NULL DEFAULT '' COMMENT '用户名',
+  `password` varchar(128) NOT NULL DEFAULT '' COMMENT '密码',
+  `gmt_create` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP COMMENT '记录创建时间',
+  `gmt_update` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP COMMENT '记录更新时间',
+  PRIMARY KEY (`id`),
+  UNIQUE KEY `idx_name` (`name`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4
 
-generatorConfig.Config.
+INSERT INTO common.user(name,password)
+VALUES ('zhangsan','pwd'),
+('lisi','1234');
