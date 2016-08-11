@@ -22,7 +22,7 @@
             <property name="rootClass" value="com.zhangdinet.domain.BaseDO"/>
         </javaModelGenerator>
         
-        <sqlMapGenerator targetPackage="${mybatis.generator.xml.mapper.package}" targetProject="${mybatis.generator.target.project}">
+        <sqlMapGenerator targetPackage="${mybatis.generator.xml.mapper.package}" targetProject="${mybatis.generator.target.resources}">
             <property name="enableSubPackages" value="false"/>
         </sqlMapGenerator>
         
