@@ -7,3 +7,5 @@ CREATE table user(
   gmt_update DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP COMMENT '记录更新时间',
   UNIQUE idx_name (name)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4
+
+generatorConfig.Config.
