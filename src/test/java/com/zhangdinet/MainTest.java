@@ -8,7 +8,15 @@ import org.apache.ibatis.session.SqlSessionFactory;
 import org.apache.ibatis.session.SqlSessionFactoryBuilder;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.w3c.dom.Document;
+import org.w3c.dom.NodeList;
 
+import javax.xml.parsers.DocumentBuilder;
+import javax.xml.parsers.DocumentBuilderFactory;
+import javax.xml.xpath.XPath;
+import javax.xml.xpath.XPathConstants;
+import javax.xml.xpath.XPathExpression;
+import javax.xml.xpath.XPathFactory;
 import java.io.Reader;
 import java.util.List;
 
@@ -22,7 +30,7 @@ public class MainTest {
 
     static Logger logger = LoggerFactory.getLogger(MainTest.class);
 
-    public static void main(String[] args){
+    public static void testMybatis(){
         try{
             Reader reader = Resources.getResourceAsReader("MapperCOnfig.xml");
             SqlSessionFactoryBuilder sqlSessionFactoryBuilder = new SqlSessionFactoryBuilder();
@@ -35,5 +43,32 @@ public class MainTest {
         }catch (Exception e){
             e.printStackTrace();
         }
+    }
+
+    public static void testXpath(){
+        try {
+            DocumentBuilderFactory documentBuilderFactory = DocumentBuilderFactory.newInstance();
+            documentBuilderFactory.setNamespaceAware(true);
+            DocumentBuilder documentBuilder = documentBuilderFactory.newDocumentBuilder();
+            Document document = documentBuilder.parse("D:/zhangdi/project/common-dao/src/test/resources/books.xml");
+
+            XPathFactory xPathFactory = XPathFactory.newInstance();
+            XPath xPath = xPathFactory.newXPath();
+            XPathExpression xPathExpression = xPath.compile("//book[author='Neal Stephenson']/title/text()");
+
+            Object object = xPathExpression.evaluate(document, XPathConstants.NODESET);
+            NodeList nodeList = (NodeList)object;
+            for(int i=0;i<nodeList.getLength();i++){
+                System.out.println(nodeList.item(i).getNodeValue());
+            }
+
+        }catch (Exception e){
+            e.printStackTrace();
+        }
+    }
+
+    public static void main(String[] args){
+        testMybatis();
+        //testXpath();
     }
 }
