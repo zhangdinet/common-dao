@@ -18,7 +18,6 @@ import javax.xml.xpath.XPathConstants;
 import javax.xml.xpath.XPathExpression;
 import javax.xml.xpath.XPathFactory;
 import java.io.Reader;
-import java.util.List;
 
 /**
  * Main测试类
@@ -32,12 +31,12 @@ public class MainTest {
 
     public static void testMybatis(){
         try{
-            Reader reader = Resources.getResourceAsReader("MapperCOnfig.xml");
+            Reader reader = Resources.getResourceAsReader("MapperConfig.xml");
             SqlSessionFactoryBuilder sqlSessionFactoryBuilder = new SqlSessionFactoryBuilder();
             SqlSessionFactory sqlSessionFactory = sqlSessionFactoryBuilder.build(reader);
             SqlSession sqlSession = sqlSessionFactory.openSession();
             UserDOMapper userDOMapper = sqlSession.getMapper(UserDOMapper.class);
-            List<UserDO> userDOList = userDOMapper.selectAll();
+            UserDO userDO = userDOMapper.getById(1L);
             int a=10;
             a++;
         }catch (Exception e){
