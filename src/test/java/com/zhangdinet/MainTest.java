@@ -2,6 +2,9 @@ package com.zhangdinet;
 
 import com.zhangdinet.dao.UserDOMapper;
 import com.zhangdinet.domain.UserDO;
+import com.zhangdinet.learn.proxy.Add;
+import com.zhangdinet.learn.proxy.AddImpl;
+import com.zhangdinet.learn.proxy.LogHandler;
 import org.apache.ibatis.io.Resources;
 import org.apache.ibatis.session.SqlSession;
 import org.apache.ibatis.session.SqlSessionFactory;
@@ -18,6 +21,7 @@ import javax.xml.xpath.XPathConstants;
 import javax.xml.xpath.XPathExpression;
 import javax.xml.xpath.XPathFactory;
 import java.io.Reader;
+import java.lang.reflect.Method;
 
 /**
  * Main测试类
@@ -37,8 +41,6 @@ public class MainTest {
             SqlSession sqlSession = sqlSessionFactory.openSession();
             UserDOMapper userDOMapper = sqlSession.getMapper(UserDOMapper.class);
             UserDO userDO = userDOMapper.getById(1L);
-            int a=10;
-            a++;
         }catch (Exception e){
             e.printStackTrace();
         }
@@ -66,8 +68,38 @@ public class MainTest {
         }
     }
 
+    public static void testReflectArray(){
+        String[] arrS = new String[]{"ab","cd","ef"};
+        Class arrSClass = arrS.getClass();
+        int a=10;
+    }
+
+    public static void testReflection(){
+        DemoClass demoClass = new DemoClass(2,5);
+        Class c = demoClass.getClass();
+        try{
+            Method m = c.getDeclaredMethod("print",null);
+            m.setAccessible(true);
+            m.invoke(demoClass,null);
+        }catch (Exception e){
+            System.out.print(e);
+        }
+        Class sc = DemoClass.class;
+    }
+
+    public static void testProxy(){
+        AddImpl addImpl = new AddImpl();
+        LogHandler logHandler = new LogHandler();
+        Add add = (Add)logHandler.newInstance(addImpl);
+        int c = add.add(100,200);
+        int d =10;
+    }
+
     public static void main(String[] args){
-        testMybatis();
+        //testMybatis();
         //testXpath();
+        //testReflection();
+        //testReflectArray();
+        testProxy();
     }
 }
