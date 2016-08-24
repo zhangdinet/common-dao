@@ -2,6 +2,7 @@ package com.zhangdinet;
 
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
+import org.testng.annotations.Test;
 
 /**
  * Use to start test
@@ -21,5 +22,12 @@ public class AppTest {
     @AfterMethod
     public void tearDown() throws Exception {
 
+    }
+
+    @Test
+    public void testMain(){
+        System.out.println("haha");
+        int a=10;
+        a++;
     }
 }

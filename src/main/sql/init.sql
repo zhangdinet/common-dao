@@ -1,3 +1,9 @@
+show database;
+
+CREATE database common;
+
+use common;
+
 -- 用户表
 CREATE TABLE `user` (
   `id` bigint(20) NOT NULL AUTO_INCREMENT COMMENT '主键',
