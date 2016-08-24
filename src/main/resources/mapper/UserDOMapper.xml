@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.zhangdinet.dao.UserDOMapper">
+    <resultMap id="BaseResultMap" type="com.zhangdinet.domain.UserDO">
+        <id column="id" jdbcType="BIGINT" property="id"/>
+        <result column="name" jdbcType="VARCHAR" property="name"/>
+        <result column="password" jdbcType="VARCHAR" property="password"/>
+        <result column="gmt_create" jdbcType="TIMESTAMP" property="gmtCreate"/>
+        <result column="gmt_update" jdbcType="TIMESTAMP" property="gmtUpdate"/>
+    </resultMap>
+
+    <delete id="deleteByPrimaryKey" parameterType="java.lang.Long">
+        delete from user
+        where id = #{id,jdbcType=BIGINT}
+    </delete>
+
+    <insert id="insert" parameterType="com.zhangdinet.domain.UserDO">
+        insert into user (id, name, password, gmt_create, gmt_update)
+        values (#{id,jdbcType=BIGINT}, #{name,jdbcType=VARCHAR}, #{password,jdbcType=VARCHAR}, #{gmtCreate,jdbcType=TIMESTAMP}, #{gmtUpdate,jdbcType=TIMESTAMP})
+    </insert>
+
+    <update id="updateByPrimaryKey" parameterType="com.zhangdinet.domain.UserDO">
+        update user
+        set name = #{name,jdbcType=VARCHAR},
+              password = #{password,jdbcType=VARCHAR},
+              gmt_create = #{gmtCreate,jdbcType=TIMESTAMP},
+              gmt_update = #{gmtUpdate,jdbcType=TIMESTAMP}
+        where id = #{id,jdbcType=BIGINT}
+    </update>
+
+    <select id="getById" parameterType="java.lang.Long" resultMap="BaseResultMap">
+        select id, name, password, gmt_create, gmt_update
+        from user
+        where id = #{id,jdbcType=BIGINT}
+    </select>
+
+    <select id="getAll" resultMap="BaseResultMap">
+        select id, name, password, gmt_create, gmt_update
+        from user
+    </select>
+
+</mapper>
