@@ -46,7 +46,7 @@ public class MainTest {
         }
     }
 
-    public static void testXpath(){
+    public static void testXPath(){
         try {
             DocumentBuilderFactory documentBuilderFactory = DocumentBuilderFactory.newInstance();
             documentBuilderFactory.setNamespaceAware(true);
@@ -96,10 +96,10 @@ public class MainTest {
     }
 
     public static void main(String[] args){
-        //testMybatis();
-        //testXpath();
+        testMybatis();
+        //testXPath();
         //testReflection();
         //testReflectArray();
-        testProxy();
+        //testProxy();
     }
 }
