@@ -101,5 +101,6 @@ public class MainTest {
         //testReflection();
         //testReflectArray();
         //testProxy();
+        //testJAXP();
     }
 }
